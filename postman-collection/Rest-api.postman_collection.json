@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "c188daa9-b29c-4a8b-baf5-429ebc8e2154",
+		"name": "Rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"admin\": \"Luis\",\r\n    \"password\": 1234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "El request devuelve un JWT el cual debe añadirse al header de todas las request siguientes."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Tecnico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMDg2MzAwLCJleHAiOjE2NTIwODk5MDB9.l5GURyQ_iO1_xCo5vcB5hXj44XbG3Oswb8xgwzaF8os",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"andres\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/create-tecnico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-tecnico"
+					]
+				},
+				"description": "Crea un Tecnico en la base de datos, devuelve un response con el id asignado y el nombre del tecnico"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Tecnicos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMDg2MzAwLCJleHAiOjE2NTIwODk5MDB9.l5GURyQ_iO1_xCo5vcB5hXj44XbG3Oswb8xgwzaF8os",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tecnicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tecnicos"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Consulta todos los tecnicos en la base de datos y devuelve la lista de tecnicos."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Tecnico Por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMDg2MzAwLCJleHAiOjE2NTIwODk5MDB9.l5GURyQ_iO1_xCo5vcB5hXj44XbG3Oswb8xgwzaF8os",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tecnicos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tecnicos",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Consulta a la base de datos, la informacion de un tecnico segun id, devuelve los datos del tecnico y los servicios que se le han asignado, si los tiene."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Servicio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_cliente\": \"camilo\",\r\n    \"servicio_solicitado\": \"Instalacion base TV\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/create-servicio/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-servicio",
+						""
+					]
+				},
+				"description": "Crea un servicio en la base de datos, y se le asigna a un tecnico de forma aleatoria."
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Servicio de Tecnico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicios/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicios",
+						"1"
+					]
+				},
+				"description": "Consulta a la base de datos, los servicios que tiene asignado un tecnico, segun el id de este."
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Tecnico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete-tecnico/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete-tecnico",
+						"1"
+					]
+				},
+				"description": "Elimina a un tecnico por id, de la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar eliminacion de tecnico",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMTE4MzAxLCJleHAiOjE2NTI3MjMxMDF9.chr7MWwWcsiy3qoqr398c703r4NyrqhqxA7yetz_Dos",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6Ikx1aXMiLCJwYXNzd29yZCI6MTIzNCwiaWF0IjoxNjUyMDg2MzAwLCJleHAiOjE2NTIwODk5MDB9.l5GURyQ_iO1_xCo5vcB5hXj44XbG3Oswb8xgwzaF8os",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tecnicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tecnicos"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Puedes verificar la eliminacion de un tecnico, luego de haberlo eliminado con el request anterior"
+			},
+			"response": []
+		}
+	]
+}
